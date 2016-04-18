@@ -1,0 +1,31 @@
+﻿<Window x:Class="test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test"
+        xmlns:graphsharp="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
+        xmlns:zoom ="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="500"
+        x:Name="root"
+        >
+    <Grid>
+        <zoom:ZoomControl ZoomDeltaMultiplier="1">
+        
+            <graphsharp:GraphLayout x:Name="graphLayout"    
+                                Graph="{Binding ElementName=root, Path=GraphToVisualize}" 
+                                LayoutAlgorithmType="Circular"
+                                />
+        </zoom:ZoomControl>
+        
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Loaded="ComboBox_Loaded"
+	    SelectionChanged="ComboBox_SelectionChanged"/>
+
+        <ComboBox HorizontalAlignment="Right" VerticalAlignment="Top" Width="120" Loaded="ComboBoxGraph_Loaded"
+	    SelectionChanged="ComboBoxGraph_SelectionChanged"/>
+
+        <Button Content="Add random" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Button_Click"/>
+        
+    </Grid>
+</Window>
